@@ -30,7 +30,7 @@ ee_authenticate(token_name=os.environ["EARTHENGINE_TOKEN"])
 # st.write(
 #     os.environ["EARTHENGINE_TOKEN"]
 # )
-m = geemap.Map()
+# m = geemap.Map()
 
 ed = date.today()
 sd = ed - timedelta(days=30)
@@ -47,6 +47,16 @@ endDate = ed.strftime("%Y-%m-%d") + "T"
 # titlemap = "Sentinel 2 - Natural Color"
 
 # m.addLayer(se2, rgbViza, titlemap)
+map_center=(-43.525650, 172.639847)
+
+m = geemap.Map(
+    basemap="HYBRID",
+    plugin_Draw=True,
+    Draw_export=True,
+    locate_control=True,
+    plugin_LatLngPopup=True, 
+    center=map_center, zoom=15,
+)
 
 vis_params = {
     'min': 0,
