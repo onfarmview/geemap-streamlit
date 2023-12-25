@@ -38,15 +38,15 @@ sd = ed - timedelta(days=30)
 startDate = sd.strftime("%Y-%m-%d") + "T" 
 endDate = ed.strftime("%Y-%m-%d") + "T"
 
-se2 = ee.ImageCollection('COPERNICUS/S2_SR').filterDate(
-    startDate, endDate).filter(
-    ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", 80)).median()
+# se2 = ee.ImageCollection('COPERNICUS/S2_SR').filterDate(
+#     startDate, endDate).filter(
+#     ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", 80)).median()
 
-band = ['B4', 'B3', 'B2']
-rgbViza = {"min": 0.0, "max": 0.7, "bands": band}
-titlemap = "Sentinel 2 - Natural Color"
+# band = ['B4', 'B3', 'B2']
+# rgbViza = {"min": 0.0, "max": 0.7, "bands": band}
+# titlemap = "Sentinel 2 - Natural Color"
 
-m.addLayer(se2, rgbViza, titlemap)
+# m.addLayer(se2, rgbViza, titlemap)
 
 vis_params = {
     'min': 0,
