@@ -107,7 +107,7 @@ footer_content = """
 st.sidebar.markdown(footer_content, unsafe_allow_html=True)
 
 
-def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+def ee_authenticate(token_name):
     geemap.ee_initialize(token_name=token_name)
 
 def maskCloudAndShadows(image):
@@ -144,7 +144,7 @@ endDate = ed.strftime("%Y-%m-%d") + "T"
 
 se2 = ee.ImageCollection('COPERNICUS/S2_SR').filterDate(
             startDate,endDate).filter(
-            ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE",80)).map(maskCloudAndShadows).median()
+            ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE",80)).median()
 band = ['B4','B3','B2']
 rgbViza = {"min":0.0, "max":0.7,"bands":band}
 titlemap = "Sentinel 2 - Natural Color"
