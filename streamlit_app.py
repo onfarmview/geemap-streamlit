@@ -40,7 +40,7 @@ endDate = ed.strftime("%Y-%m-%d") + "T"
 
 se2 = ee.ImageCollection('COPERNICUS/S2_SR').filterDate(
     startDate, endDate).filter(
-    ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", 80)).map(maskCloudAndShadows).median()
+    ee.Filter.lt("CLOUDY_PIXEL_PERCENTAGE", 80)).median()
 
 band = ['B4', 'B3', 'B2']
 rgbViza = {"min": 0.0, "max": 0.7, "bands": band}
