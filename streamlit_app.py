@@ -47,7 +47,8 @@ def maskCloudAndShadows(image):
 def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
     geemap.ee_initialize(token_name=token_name)
 
-ee_authenticate(token_name="EARTHENGINE_TOKEN")    
+ee_authenticate(token_name=os.environ["EARTHENGINE_TOKEN"])   
+
 m = geemap.Map()
 # dem = ee.Image('USGS/SRTMGL1_003')
 ed = date.today()
