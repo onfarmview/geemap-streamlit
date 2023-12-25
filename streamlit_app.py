@@ -26,14 +26,12 @@ from streamlit_folium import folium_static
 import geemap.foliumap as geemap
 import ee
 import os
+st.write(
+    "Has environment variables been set:",
+    os.environ["EARTHENGINE_TOKEN"] == st.secrets["EARTHENGINE_TOKEN"],
+)
 
 os.environ["EARTHENGINE_TOKEN"] == st.secrets["EARTHENGINE_TOKEN"]
-
-# with st.echo():
-import streamlit as st
-from streamlit_folium import folium_static
-import geemap.foliumap as geemap
-import ee
 
 def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
     geemap.ee_initialize(token_name=token_name)
