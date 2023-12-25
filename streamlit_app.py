@@ -25,11 +25,9 @@ import streamlit as st
 from streamlit_folium import folium_static
 import geemap.foliumap as geemap
 import ee
+import os
 
-# os.environ["EARTHENGINE_TOKEN"] == st.secrets["EARTHENGINE_TOKEN"]
-
-"# streamlit geemap demo"
-st.markdown('Source code: <https://github.com/giswqs/geemap-streamlit/blob/main/geemap_app.py>')
+os.environ["EARTHENGINE_TOKEN"] == st.secrets["EARTHENGINE_TOKEN"]
 
 # with st.echo():
 import streamlit as st
@@ -37,6 +35,10 @@ from streamlit_folium import folium_static
 import geemap.foliumap as geemap
 import ee
 
+def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+    geemap.ee_initialize(token_name=token_name)
+
+ee_authenticate(token_name="EARTHENGINE_TOKEN")    
 m = geemap.Map()
 dem = ee.Image('USGS/SRTMGL1_003')
 
