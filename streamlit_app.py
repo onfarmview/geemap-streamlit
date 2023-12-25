@@ -23,7 +23,7 @@ def maskCloudAndShadows(image):
     mask = (cloud.And(snow)).And(cirrus.neq(1)).And(shadow.neq(1))
     return image.updateMask(mask).divide(10000)
 
-def ee_authenticate(token_name="EARTHENGINE_TOKEN"):
+def ee_authenticate(token_name):
     geemap.ee_initialize(token_name=token_name)
 
 ee_authenticate(token_name=os.environ["EARTHENGINE_TOKEN"])   
